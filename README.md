@@ -9,7 +9,7 @@ The tool support flat and pointed hexes, 2 lines of text, a custom filler char a
 
 1. Usage
 -----------------------
-Include the file 'target/asciihexgrid.jar' in your classpath.
+Include the file 'deploy/asciihexgrid-1.0.jar' in your classpath.
 
 Building a hex grid like so:
 
@@ -157,9 +157,9 @@ Large pointy:
 -----------------------
 For building the jar file. Gradle 1.6 is needed. Run
 
-    > gradle package
+    > gradle deploy
 
-from the command line. The jar can now be found in targets/asciihexgrid.jar.
+from the command line. The jar can now be found in build/libs/asciihexgridprettyprinter-1.0.jar.
 
 
 5. Credit

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
+	<info organisation="dk.ilios.asciihexgrid"
+		module="Ascii Hexagonal Grid Pretty Printer"
+		revision="1.0"
+		status="integration"
+		publication="20130804153919"
+	/>
+	<configurations>
+		<conf name="archives" visibility="public" description="Configuration for archive artifacts."/>
+		<conf name="compile" visibility="private" description="Compile classpath for source set &apos;main&apos;."/>
+		<conf name="default" visibility="public" description="Configuration for default artifacts." extends="runtime"/>
+		<conf name="runtime" visibility="private" description="Runtime classpath for source set &apos;main&apos;." extends="compile"/>
+		<conf name="testCompile" visibility="private" description="Compile classpath for source set &apos;test&apos;." extends="compile"/>
+		<conf name="testRuntime" visibility="private" description="Runtime classpath for source set &apos;test&apos;." extends="runtime,testCompile"/>
+	</configurations>
+	<publications>
+		<artifact name="asciihexgrid" type="jar" ext="jar" conf="archives,runtime"/>
+	</publications>
+	<dependencies>
+		<dependency org="junit" name="junit" rev="4.11" conf="testCompile->default"/>
+	</dependencies>
+</ivy-module>
