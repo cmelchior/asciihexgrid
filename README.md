@@ -11,7 +11,7 @@ The tool support flat and pointed hexes, 2 lines of text, a custom filler char a
 -----------------------
 Include the file 'deploy/asciihexgrid-1.0.jar' in your classpath.
 
-Building a hex grid like so:
+Build a hex grid like this:
 
     AsciiBoard board = new AsciiBoard(0, 2, 0, 1, new SmallFlatAsciiHexPrinter());
     board.printHex("HX1","-B-", '#', 0, 0);
@@ -21,20 +21,21 @@ Building a hex grid like so:
     board.prettyPrint(true);
 
 output will look like this:
+
     | = = = = = = = = = = = = |
     |    _ _                  |
     |  /# # #\                |
     | /# HX1 #\ _ _           |
-    | \# -B- #/+ + +\         |
+    | \# -A- #/+ + +\         |
     |  \#_#_#/+ HX2 +\ _ _    |
-    |        \+ -W- +/+ + +\  |
-    |         \+_+_+/+ HX3 +\ |
-    |               \+ -W- +/ |
-    |                \+_+_+/  |
-    |                /# # #\  |
-    |               /# HX3 #\ |
-    |               \# -B- #/ |
-    |                \#_#_#/  |
+    |        \+ -B- +/- - -\  |
+    |         \+_+_+/- HX3 -\ |
+    |               \- -C- -/ |
+    |                \-_-_-/  |
+    |                /• • •\  |
+    |               /• HX4 •\ |
+    |               \• -D- •/ |
+    |                \•_•_•/  |
     |                         |
     | = = = = = = = = = = = = |
 
@@ -157,14 +158,14 @@ Large pointy:
 -----------------------
 For building the jar file. Gradle 1.6 is needed. Run
 
-    > gradle deploy
+    > gradle uploadArchives
 
-from the command line. The jar can now be found in build/libs/asciihexgridprettyprinter-1.0.jar.
+from the command line. The jar can now be found in deploy/asciihexgrid-1.0.jar.
 
 
 5. Credit
 -----------------------
-For a incredible useful and throrough guide on all things hexagonal grid related, see this excellent blog post by
+For an incredible useful and throrough guide on all things hexagonal grid related, see this excellent blog post by
 Red Blob Games:
 
 http://www.redblobgames.com/grids/hexagons/

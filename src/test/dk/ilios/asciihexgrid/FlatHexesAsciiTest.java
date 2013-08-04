@@ -10,7 +10,7 @@ import org.junit.Test;
  */
 public class FlatHexesAsciiTest {
 
-    public static final boolean USE_BOX = false;
+    public static final boolean USE_BOX = true;
 
     AsciiHexPrinter printer;
 
@@ -73,10 +73,10 @@ public class FlatHexesAsciiTest {
     @Test
     public void testBoard_fshape() {
         AsciiBoard board = new AsciiBoard(0,2,0,1, printer);
-        board.printHex("HX1","-B-", '•', 0, 0);
-        board.printHex("HX2","-W-", '-', 1, 0);
-        board.printHex("HX3","-W-", '-', 2, 0);
-        board.printHex("HX4","-B-", '•', 2, 1);
+        board.printHex("HX1","-A-", '#', 0, 0);
+        board.printHex("HX2","-B-", '+', 1, 0);
+        board.printHex("HX3","-C-", '-', 2, 0);
+        board.printHex("HX4","-D-", '•', 2, 1);
 
         System.out.println(board.prettPrint(USE_BOX));
     }
