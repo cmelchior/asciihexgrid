@@ -78,6 +78,13 @@ Pointy orientation:
          \     / \     /
            \ /     \ /
 
+Negative coordinates are currently not supported, ie. (0,0) is the top-left corner.
+If you hex grid have negative coordinates, they can be shifted correctly by the following algorithm (pseducode):
+
+    int adjustQ = hexes.getMinQ();
+    int adjustR = hexes.getMinR();
+    board.printHex("HX1","-A-", hex.getQ() - adjustQ, hex.getR() - adjust);
+
 
 3. Examples
 -----------------------
