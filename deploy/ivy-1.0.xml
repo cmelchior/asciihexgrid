@@ -4,7 +4,7 @@
 		module="Ascii Hexagonal Grid Pretty Printer"
 		revision="1.0"
 		status="integration"
-		publication="20130804153919"
+		publication="20130901225405"
 	/>
 	<configurations>
 		<conf name="archives" visibility="public" description="Configuration for archive artifacts."/>

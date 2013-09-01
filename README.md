@@ -1,10 +1,10 @@
 Ascii Hexagonal Grid Pretty Printer
 =======================
 
-Small tool that can output a hexagonal grid to the commandline.
-This enables a visual inspection of the state of a hex grid, usefull for eg. debugging hexagonal grid states or similar.
+Ascii Hexagonal Grid Pretty Printer is a Java based tool that can output a hexagonal grid to the commandline.
+This enables a visual inspection of the state of a hex grid which can be usefull for eg. debugging hexagonal grid states.
 
-The tool support flat and pointed hexes, 2 lines of text, a custom filler char as well as different hex sizes.
+The tool supports flat and pointed hexes, 2 lines of text, a custom filler char as well as different hex sizes.
 
 
 1. Usage
