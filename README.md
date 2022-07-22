@@ -1,5 +1,4 @@
-Ascii Hexagonal Grid Pretty Printer
-=======================
+# Ascii Hexagonal Grid Pretty Printer
 
 Ascii Hexagonal Grid Pretty Printer is a Java based tool that can output a hexagonal grid to the commandline.
 This enables a visual inspection of the state of a hex grid which can be usefull for eg. debugging hexagonal grid states.
@@ -7,9 +6,13 @@ This enables a visual inspection of the state of a hex grid which can be usefull
 The tool supports flat and pointed hexes, 2 lines of text, a custom filler char as well as different hex sizes.
 
 
-1. Usage
------------------------
-Include the file 'deploy/asciihexgrid-1.0.jar' in your classpath.
+## 1. Usage
+
+Add this dependency to your class path:
+
+```
+implementation 'dk.ilios.asciihexgrid:asciihexgrid:1.0`
+```
 
 Build a hex grid like this:
 
@@ -39,8 +42,7 @@ output will look like this:
     |                         |
     | = = = = = = = = = = = = |
 
-2. Coordinate system
------------------------
+## 2. Coordinate system
 
 The hex grids uses a trapezoidal/axial coordinate system. The axis' look a little different depending on flat or
 pointed orientation.
@@ -86,9 +88,9 @@ If you hex grid have negative coordinates, they can be shifted correctly by the 
     board.printHex("HX1","-A-", hex.getQ() - adjustQ, hex.getR() - adjust);
 
 
-3. Examples
------------------------
-Currently 4 types of hexes are supported: Small/large flat and small/large pointed. Examples can be seen below:
+## 3. Examples
+
+Currently, 4 types of hexes are supported: Small/large flat and small/large pointed. Examples can be seen below:
 
 Small flat:
 
@@ -161,18 +163,18 @@ Large pointy:
 
 
 
-4. Build
------------------------
-For building the jar file. Gradle 1.6 is needed. Run
+## 4. Build
 
-    > gradle uploadArchives
+For building and publishing the library. Run
 
-from the command line. The jar can now be found in deploy/asciihexgrid-1.0.jar.
+    > ./gradlew publishToMavenLocal
 
+from the command line. The jar can now be found in `~/.m2/repository/dk/ilios/asciihexgrid` and can be included using
+the `mavenLocal()` repository.
 
-5. Credit
------------------------
-For an incredible useful and throrough guide on all things hexagonal grid related, see this excellent blog post by
+## 5. Credit
+
+For an incredible useful and thorough guide on all things hexagonal grid related, see this excellent blog post by
 Red Blob Games:
 
 http://www.redblobgames.com/grids/hexagons/

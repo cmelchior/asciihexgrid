@@ -1,13 +1,13 @@
-package dk.ilios.asciihexgrid.printers;
+package dk.ilios.asciihexgrid.printers
 
-import dk.ilios.asciihexgrid.HexOrientation;
+import dk.ilios.asciihexgrid.HexOrientation
+import java.util.*
 
-public abstract class AsciiHexPrinter {
-
+abstract class AsciiHexPrinter {
     /**
      * Returns the hex
      */
-    public abstract String getHex(String line1, String line2, char fillerChar);
+    abstract fun getHex(line1: String?, line2: String?, fillerChar: Char): String
 
     /**
      * Viewing the board as a grid of hexes. Each hex has a bounding box. Map top-left of bounding box given by hex
@@ -15,7 +15,7 @@ public abstract class AsciiHexPrinter {
      *
      * @returns A int[2] with (x,y) char coordinates. (top,left) is (0,0)
      */
-    public abstract int[] mapHexCoordsToCharCoords(int q, int r);
+    abstract fun mapHexCoordsToCharCoords(q: Int, r: Int): IntArray
 
     /**
      * Returns the bounding box in chars for a map of the given size
@@ -24,30 +24,28 @@ public abstract class AsciiHexPrinter {
      * @param hexHeight Size of board in hexes verticall.
      * @return A int[2]: int[0] gives the width in chars and int[1] gives the height.
      */
-    public abstract int[] getMapSizeInChars(int hexWidth, int hexHeight);
-
+    abstract fun getMapSizeInChars(hexWidth: Int, hexHeight: Int): IntArray
 
     /**
      * Returns the orientation of hexes from the given HexPrinter
      */
-    public abstract HexOrientation getHexOrientation();
+    abstract val hexOrientation: HexOrientation
 
     /**
      * Makes sure that a string has the given length, using " " (whitespace) if input string is shorter.
      */
-    protected String restrictToLength(String str, int length) {
-        String result = "  ";
+    protected fun restrictToLength(str: String?, length: Int): String {
+        var result = "  "
         if (str != null) {
-            if (str.length() > length) {
-                result = str.toUpperCase().substring(0, length);
-            } else if (str.length() < length) {
-                result = pad(str.toUpperCase(), length - str.length());
+            result = if (str.length > length) {
+                str.uppercase(Locale.getDefault()).substring(0, length)
+            } else if (str.length < length) {
+                pad(str.uppercase(Locale.getDefault()), length - str.length)
             } else {
-                result = str;
+                str
             }
         }
-
-        return result;
+        return result
     }
 
     /**
@@ -57,16 +55,17 @@ public abstract class AsciiHexPrinter {
      * @param n
      * @return
      */
-    private String pad(String s, int n) {
+    private fun pad(s: String, n: Int): String {
+        var s = s
+        var n = n
         while (n > 0) {
-            if (n % 2 == 0) {
-                s = " " + s;
+            s = if (n % 2 == 0) {
+                " $s"
             } else {
-                s = s + " ";
+                "$s "
             }
-            n--;
+            n--
         }
-
-        return s;
+        return s
     }
 }
