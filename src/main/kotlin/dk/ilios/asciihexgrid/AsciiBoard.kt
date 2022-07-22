@@ -6,36 +6,36 @@ import dk.ilios.asciihexgrid.printers.AsciiHexPrinter
  * Description of a Ascii hex map.
  * The hex grid uses a trapezoidal or axial coordinate system, like so:
  *
- * _ _
- * /     \
- * _ _ /(0,-1) \ _ _
- * /     \  -R   /     \
+ *           _ _
+ *         /     \
+ *    _ _ /(0,-1) \ _ _
+ *  /     \  -R   /     \
  * /(-1,0) \ _ _ /(1,-1) \
  * \  -Q   /     \       /
- * \ _ _ / (0,0) \ _ _ /
- * /     \       /     \
+ *  \ _ _ / (0,0) \ _ _ /
+ *  /     \       /     \
  * /(-1,1) \ _ _ / (1,0) \
  * \       /     \  +Q   /
- * \ _ _ / (0,1) \ _ _ /
- * \  +R   /
- * \ _ _ /
+ *  \ _ _ / (0,1) \ _ _ /
+ *        \  +R   /
+ *         \ _ _ /
  *
  * or so (depending on hex orientation):
  *
- * / \     / \
- * /     \ /     \
- * | -1,-1 |  1,-1 |
- * |   -R  |       |
- * / \     / \     / \
- * /     \ /     \ /     \
+ *        / \     / \
+ *      /     \ /     \
+ *     | -1,-1 |  1,-1 |
+ *     |   -R  |       |
+ *    / \     / \     / \
+ *  /     \ /     \ /     \
  * | -1,0  |  0,0  |  1,0  |
  * |  -Q   |       |   +Q  |
- * \     / \     / \     /
- * \ /     \ /     \ /
- * | -1,1  |  0,1  |
- * |       |   +R  |
- * \     / \     /
- * \ /     \ /
+ *  \     / \     / \     /
+ *    \ /     \ /     \ /
+ *     | -1,1  |  0,1  |
+ *     |       |   +R  |
+ *      \     / \     /
+ *        \ /     \ /
  *
  */
 class AsciiBoard(minQ: Int, maxQ: Int, minR: Int, maxR: Int, printer: AsciiHexPrinter) {
