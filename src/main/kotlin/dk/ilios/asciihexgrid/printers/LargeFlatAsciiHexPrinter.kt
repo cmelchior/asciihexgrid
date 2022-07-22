@@ -8,15 +8,15 @@ class LargeFlatAsciiHexPrinter : AsciiHexPrinter() {
     private val sideLength = 3
     private val sideHeight = 3
 
-    override fun getHex(line1: String?, line2: String?, filler: Char): String {
-        var line1 = line1
-        var line2 = line2
+    override fun getHex(textLine1: String, textLine2: String, fillerChar: Char): String {
+        var line1 = textLine1
+        var line2 = textLine2
         var hex: String = TEMPLATE
         line1 = restrictToLength(line1, 7)
         line2 = restrictToLength(line2, 7)
         hex = hex.replace("XXXXXXX", line1)
         hex = hex.replace("YYYYYYY", line2)
-        return hex.replace('#', filler)
+        return hex.replace('#', fillerChar)
     }
 
     override fun mapHexCoordsToCharCoords(q: Int, r: Int): IntArray {

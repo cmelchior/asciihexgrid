@@ -8,9 +8,9 @@ class LargePointyAsciiHexPrinter : AsciiHexPrinter() {
     private val sideWidth = 6 // Size from center to left/right border
     private val sideHeight = 3 // Size from top to left/right border
     private val bordersLength = 2 // Size of the combined left/right borders
-    override fun getHex(line1: String?, line2: String?, fillerChar: Char): String {
-        var line1 = line1
-        var line2 = line2
+    override fun getHex(textLine1: String, textLine2: String, fillerChar: Char): String {
+        var line1 = textLine1
+        var line2 = textLine2
         var hex: String = TEMPLATE
         line1 = restrictToLength(line1, 7)
         line2 = restrictToLength(line2, 7)

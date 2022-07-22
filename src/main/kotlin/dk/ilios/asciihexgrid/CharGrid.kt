@@ -5,10 +5,10 @@ package dk.ilios.asciihexgrid
  * (Top,Left) has coordinates (0,0).
  */
 class CharGrid(private val width: Int, private val height: Int) {
-    private val grid: Array<CharArray>
+
+    private val grid: Array<CharArray> = Array(height) { CharArray(width) }
 
     init {
-        grid = Array(height) { CharArray(width) }
         prefillGrid()
     }
 

@@ -24,10 +24,10 @@ dependencies {
 Build a hex grid like this:
 
     AsciiBoard board = new AsciiBoard(0, 2, 0, 1, new SmallFlatAsciiHexPrinter());
-    board.printHex("HX1","-B-", '#', 0, 0);
-    board.printHex("HX2","-W-", '+', 1, 0);
-    board.printHex("HX3","-W-", '-', 2, 0);
-    board.printHex("HX3","-B-", '•', 2, 1);
+    board.addHex("HX1","-B-", '#', 0, 0);
+    board.addHex("HX2","-W-", '+', 1, 0);
+    board.addHex("HX3","-W-", '-', 2, 0);
+    board.addHex("HX3","-B-", '•', 2, 1);
     board.prettyPrint(true);
 
 output will look like this:
@@ -92,7 +92,7 @@ If you hex grid have negative coordinates, they can be shifted correctly by the 
 
     int adjustQ = hexes.getMinQ();
     int adjustR = hexes.getMinR();
-    board.printHex("HX1","-A-", hex.getQ() - adjustQ, hex.getR() - adjust);
+    board.addHex("HX1","-A-", hex.getQ() - adjustQ, hex.getR() - adjust);
 
 
 ## 3. Examples

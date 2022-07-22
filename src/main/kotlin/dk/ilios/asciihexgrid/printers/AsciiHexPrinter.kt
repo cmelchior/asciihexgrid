@@ -7,7 +7,7 @@ abstract class AsciiHexPrinter {
     /**
      * Returns the hex
      */
-    abstract fun getHex(line1: String?, line2: String?, fillerChar: Char): String
+    abstract fun getHex(textLine1: String, textLine2: String, fillerChar: Char): String
 
     /**
      * Viewing the board as a grid of hexes. Each hex has a bounding box. Map top-left of bounding box given by hex
@@ -50,14 +50,14 @@ abstract class AsciiHexPrinter {
 
     /**
      * Pads whitespace to both sides, effectively centering the text.
-     * Padding starts at the left side
-     * @param s
-     * @param n
-     * @return
+     * Padding starts on the left side.
+     * @param str the string to pad.
+     * @param size size of the final string.
+     * @return padded String
      */
-    private fun pad(s: String, n: Int): String {
-        var s = s
-        var n = n
+    private fun pad(str: String, size: Int): String {
+        var s = str
+        var n = size
         while (n > 0) {
             s = if (n % 2 == 0) {
                 " $s"

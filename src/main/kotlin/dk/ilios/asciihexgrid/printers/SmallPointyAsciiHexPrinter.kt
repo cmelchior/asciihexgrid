@@ -8,9 +8,9 @@ class SmallPointyAsciiHexPrinter : AsciiHexPrinter() {
     private val sideLength = 4
     private val sideHeight = 2
     private val bordersLength = 2
-    override fun getHex(line1: String?, line2: String?, fillerChar: Char): String {
-        var line1 = line1
-        var line2 = line2
+    override fun getHex(textLine1: String, textLine2: String, fillerChar: Char): String {
+        var line1 = textLine1
+        var line2 = textLine2
         var hex: String = TEMPLATE
         line1 = restrictToLength(line1, 3)
         line2 = restrictToLength(line2, 3)

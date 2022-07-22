@@ -38,17 +38,18 @@ import dk.ilios.asciihexgrid.printers.AsciiHexPrinter
  *        \ /     \ /
  *
  */
+
+/**
+ * Constructs the virtual hex board.
+ *
+ * @param printer Reference to the hex printer used
+ */
 class AsciiBoard(minQ: Int, maxQ: Int, minR: Int, maxR: Int, printer: AsciiHexPrinter) {
     private val width: Int
     private val height: Int
     private val printer: AsciiHexPrinter
     private val grid: CharGrid
 
-    /**
-     * Constructs the virtual hex board.
-     *
-     * @param printer Reference to the hex printer used
-     */
     init {
         width = maxQ - minQ + 1
         height = maxR - minR + 1
@@ -57,27 +58,26 @@ class AsciiBoard(minQ: Int, maxQ: Int, minR: Int, maxR: Int, printer: AsciiHexPr
     }
 
     private fun createGrid(): CharGrid {
-        // This potentially creates the grid ½ a hexagon to heigh or wide, as we do not now given the max coordinates
+        // This potentially creates the grid ½ a hexagon to high or wide, as we do not know given the max coordinates
         // (0,0,1,1) if both (0,1) or (1,1) is filled. This is OK, as we can fix it when outputting the grid.
         val gridSize = printer.getMapSizeInChars(width, height)
-        return CharGrid(gridSize!![0], gridSize[1])
+        return CharGrid(gridSize[0], gridSize[1])
     }
 
     /**
-     *
-     * @param line1 First line of text
-     * @param line2 2nd line of
+     * @param textLine1 First line of text
+     * @param textLine2 2nd line of
      * @param fillerChar Character used as filler, may be ' '
      * @param hexQ Q coordinate for the hex in the hex grid.
      * @param hexR R coordinate for the hex in the hex grid.
      */
-    fun printHex(line1: String?, line2: String?, fillerChar: Char, hexQ: Int, hexR: Int) {
-        val hex = printer.getHex(line1, line2, fillerChar)
+    fun addHex(textLine1: String, textLine2: String, fillerChar: Char, hexQ: Int, hexR: Int) {
+        val hex = printer.getHex(textLine1, textLine2, fillerChar)
         val charCoordinates = printer.mapHexCoordsToCharCoords(hexQ, hexR)
-        val lines = hex.toString().split("\n".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+        val lines = hex.split("\n".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
         for (i in lines.indices) {
             val content = lines[i]
-            for (j in 0 until content.length) {
+            for (j in content.indices) {
                 val x = charCoordinates!![0] + j
                 val y = charCoordinates[1] + i
 
@@ -94,7 +94,7 @@ class AsciiBoard(minQ: Int, maxQ: Int, minR: Int, maxR: Int, printer: AsciiHexPr
      *
      * @param wrapInBox If true, output is wrapped in a Ascii drawn box.
      */
-    fun prettPrint(wrapInBox: Boolean): String? {
+    fun prettyPrint(wrapInBox: Boolean): String? {
         return printBoard(wrapInBox)
     }
 
