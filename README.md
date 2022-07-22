@@ -8,10 +8,17 @@ The tool supports flat and pointed hexes, 2 lines of text, a custom filler char 
 
 ## 1. Usage
 
-Add this dependency to your class path:
+Add the following dependency (requires that the library has
+been built and deployed):
 
 ```
-implementation 'dk.ilios.asciihexgrid:asciihexgrid:1.0`
+repositories {
+    mavenLocal()
+}
+
+dependencies {
+    implementation 'dk.ilios.asciihexgrid:asciihexgrid:1.0`
+}
 ```
 
 Build a hex grid like this:
